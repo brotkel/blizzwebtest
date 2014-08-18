@@ -1,0 +1,21 @@
+<section>
+  <h4>Search Results</h4>
+  <ul>
+    <li ng-repeat="question in searchQuestions">
+      <ul>
+        <li>Title: <a ng-href="{{question.link}}">{{question.title}}</a></li>
+        <li>Votes: {{question.score}}</li>
+        <li>Answers: {{question.answer_count}}</li>
+        <li>Views: {{question.view_count}}</li>
+        <li>Date Asked: {{question.creation_date * 1000 | date}}</li>
+        <li>Tags:
+          <ul>
+            <li ng-repeat="tag in question.tags">{{tag}}</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Tag Cloud:</li>
+    <li ng-show="!searchQuestions.length">There are no questions for the specified term.</li>
+  </ul>
+</section>

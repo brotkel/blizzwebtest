@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<!--<div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
@@ -20,4 +20,43 @@
 
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+</div>-->
+
+<section ng-show="loggedIn">
+  <h4>Profile Information</h4>
+  <ul>
+    <li>{{myProfile.display_name}}</li>
+    <li><img ng-src="{{myProfile.profile_image}}" />
+  </ul>
+</section>
+
+<section ng-show="loggedIn">
+  <h4>Badges</h4>
+  <ul>
+    <li ng-repeat="badge in myBadges" ng-bind="{{badge.name}}"></li>
+    <li ng-show="!myBadges.length">You have no badges</li>
+  </ul>
+</section>
+
+<section ng-show="loggedIn">
+  <h4>Timeline of activity</h4>
+  <ul>
+    <li ng-repeat="activity in myTimeline">{{activity}}</li>
+    <li ng-show="!myTimeline.length">You have no activities in your timeline</li>
+  </ul>
+</section>
+
+<section ng-show="loggedIn">
+  <h4>List of favorites</h4>
+  <ul>
+    <li ng-repeat="favorite in myFavorites"><a ng-href="{{favorite.link}}">{{favorite.title}}</a></li>
+    <li ng-show="!myFavorites.length">You have no favorites</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Tag Cloud</h4>
+  <ul>
+    <li ng-repeat="tag in tagCloud"><a ng-href="/#/search/tag/{{tag.name}}">{{tag.name}}</a></li>
+  </ul>
+</section>
