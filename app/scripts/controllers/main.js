@@ -20,24 +20,24 @@ angular.module('blizzwebtestApp')
     
     if ($rootScope.loggedIn) {
       seAPIService.getMe('').success(function (response) {
-          $scope.myProfile = response.items[0];
+        $scope.myProfile = response.items[0];
       });
       
       seAPIService.getMe('badges').success(function (response) {
-          $scope.myBadges = response.items;
+        $scope.myBadges = response.items;
       });
       
       seAPIService.getMe('timeline').success(function (response) {
-          $scope.myTimeline = response.items;
+        $scope.myTimeline = response.items;
       });
       
       seAPIService.getMe('favorites').success(function (response) {
-          $scope.myFavorites = response.items;
+        $scope.myFavorites = response.items;
       });
     }
     
     seAPIService.getTags().success(function (response) {
-        $scope.tagCloud = response.items;
+      $scope.tagCloud = response.items;
     });
     
   });

@@ -44,7 +44,7 @@ angular
         clientId: 3464, 
         key: 'x20eFwhSY2)G0cWDpQdYdg((', 
         // Used for cross domain communication, it will be validated
-        channelUrl: 'http://localhost:9000/blank.html',
+        channelUrl: 'http://localhost/blank.html',
         // Called when all initialization is finished
         complete: function(data) { 
             $('#login-button')
@@ -75,4 +75,19 @@ angular
         });
       });
     })
-  ]);
+  ])
+  .filter('uniqueTags', function() {
+    return function(list) {
+        var tags = {};
+        angular.forEach(list, function(obj, key) {
+            angular.forEach(obj.tags, function(value) {
+                tags[value] = 1;
+            })
+        });
+        var uniqueTags = []
+        for (var key in tags) {
+            uniqueTags.push(key);
+        }
+        return uniqueTags;
+    }
+});
