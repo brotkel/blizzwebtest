@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'blizzwebtestApp.services'
+    'blizzwebtestApp.services',
+    'angularMoment'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -31,6 +32,10 @@ angular
       .when('/search/tag/:tag', {
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl'
+      })
+      .when('/question/:questionId', {
+        templateUrl: 'views/question.html',
+        controller: 'QuestionCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -66,7 +71,7 @@ angular
             //  data.networkUsers[0].account_id + ', got access token = ' + 
             //  data.accessToken
             //);
-            sessionStorage.accessToken = data.accessToken; // TODO: We're using HTML5 session storage to store the access token for now. This would probably be better done through Angular's cookieStore service. 
+            sessionStorage.accessToken = data.accessToken; // TODO: We're using HTML5 session storage to store the access token for now. This would probably be better done through Angular's cookieStore service.
           },
           error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
@@ -90,4 +95,4 @@ angular
         }
         return uniqueTags;
     }
-});
+  })

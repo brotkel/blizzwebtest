@@ -1,12 +1,14 @@
 <form name="searchForm">
-  <select ng-model="selectedTag" ng-change="selectTag(selectedTag)" ng-options="tag.name for tag in tags track by tag.name" />
+  <label for="selectedTag">Tag:</label><select id="selectedTag" ng-model="selectedTag" ng-change="selectTag(selectedTag)" ng-options="tag.name for tag in tags track by tag.name" />
+  <label for="order">Order:</label><select id="selectedOrder" ng-model="selectedOrder" ng-change="selectOrder(selectedOrder)" ng-options="order for order in orders track by order" />
+  <label for="selectedSort">Sort:</label><select id="selectedSort" ng-model="selectedSort" ng-change="selectSort(selectedSort)" ng-options="sort for sort in sorts track by sort" />
 </form>
 <section>
   <h4>Search Results</h4>
   <ul>
     <li ng-repeat="question in searchQuestions">
       <ul>
-        <li>Title: <a ng-href="{{question.link}}" ng-bind-html="question.title"></a></li>
+        <li>Title: <a ng-href="/#/question/{{question.question_id}}" ng-bind-html="question.title"></a></li>
         <li>Votes: <span ng-bind="question.score"></span></li>
         <li>Answers: <span ng-bind="question.answer_count"></span></li>
         <li>Views: <span ng-bind="question.view_count"></span></li>

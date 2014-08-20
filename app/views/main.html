@@ -25,12 +25,12 @@
 <section ng-show="loggedIn">
   <h4>Profile Information</h4>
   <ul>
-    <li><a ng-href="{{myProfile.link}}">{{myProfile.display_name}}</a></li>
-    <li><a ng-href="{{myProfile.link}}"><img ng-src="{{myProfile.profile_image}}" /></a></li>
-    <li>{{myProfile.age}}</li>
-    <li>{{myProfile.location}}</li>
-    <li>Website: <a ng-href="{{myProfile.website_url}}">{{myProfile.website_url}}</a></li>
-    <li>Reputation: {{myProfile.reputation}}</li>
+    <li ng-if="myProfile.display_name"><a ng-href="{{myProfile.link}}" ng-bind="myProfile.display_name"></a></li>
+    <li ng-if="myProfile.profile_image"><a ng-href="{{myProfile.link}}"><img ng-src="{{myProfile.profile_image}}" /></a></li>
+    <li ng-if="myProfile.age">Age: {{myProfile.age}}</li>
+    <li ng-if="myProfile.location">Location: {{myProfile.location}}</li>
+    <li ng-if="myProfile.website_url">Website: <a ng-href="{{myProfile.website_url}}">{{myProfile.website_url}}</a></li>
+    <li ng-if="myProfile.reputation">Reputation: {{myProfile.reputation}}</li>
   </ul>
 </section>
 
