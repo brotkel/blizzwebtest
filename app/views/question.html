@@ -1,4 +1,5 @@
 <section>
+  <input type="checkbox" id="favorite" ng-model="isFavorite" ng-change="favorite()" /><label for="favorite" id="favoriteLabel">Favorite</label>
   <h4 ng-bind-html="questions[0].title"></h4>
   <section ng-bind-html="questions[0].body"></section>
   <ul>

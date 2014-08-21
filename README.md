@@ -7,10 +7,10 @@ blizzwebtest
 App
 --------
 1. Login uses session storage instead of cookies. Is this okay?
+2. After logging in, refresh content on page.
 
 Main Page
 --------
-1. Hide profile info if not present
 
 Search Page
 --------
@@ -22,10 +22,7 @@ Search Page
 
 Questions Page
 --------
-
-4. Display question comments with # of votes and duration
-6. Display answer comments with # of votes and duration
-7. Allow user to flag/unflag favorites.
+7. Error handling if a favorite is already set but result is cached.
 
 Theming
 --------

@@ -76,6 +76,7 @@ angular
           error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
           },
+          scope: ['write_access'],
           networkUsers: true
         });
       });

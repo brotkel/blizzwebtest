@@ -24,8 +24,8 @@ angular.module('blizzwebtestApp.services', []).
       });
     } 
     
-    seAPI.getQuestions =  function(questionId, questionSegment) {
-      if (questionSegment == 'comments') { // Comments has fewer valid parameters.
+    seAPI.getQuestions = function(questionId, questionSegment) {
+      if (questionSegment == 'comments') { // Pass different parameters for comments.
         return $http({
           url: 'https://api.stackexchange.com/2.2/questions/'+ questionId +'/'+ questionSegment +'?key='+ key +'&order=desc&sort=creation&site=stackoverflow&filter=withbody'
         });
@@ -40,6 +40,24 @@ angular.module('blizzwebtestApp.services', []).
       return $http({
         url: 'https://api.stackexchange.com/2.2/answers/'+ answerId +'/'+ answerSegment +'?key='+ key +'&order=desc&sort=creation&site=stackoverflow&filter=withbody'
       });
+    }
+    
+    seAPI.setFavorite = function(questionId, favorite) {
+      if (favorite == true) {
+        return $http({
+          method: 'POST',
+          url: 'https://api.stackexchange.com/2.2/questions/'+ questionId +'/favorite',
+          data: 'site=stackoverflow&key='+ key +'&access_token='+ sessionStorage.accessToken,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        });
+      } else {
+        return $http({
+          method: 'POST',
+          url: 'https://api.stackexchange.com/2.2/questions/'+ questionId +'/favorite/undo',
+          data: 'site=stackoverflow&key='+ key +'&access_token='+ sessionStorage.accessToken,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        });
+      }
     }
 
     return seAPI;
