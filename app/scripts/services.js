@@ -1,5 +1,6 @@
-angular.module('blizzwebtestApp.services', []).
-  factory('seAPIService', function($http) {
+angular
+  .module('blizzwebtestApp.services', [])
+  .factory('seAPIService', function($http) {
 
     var seAPI = {};
     var key = "x20eFwhSY2)G0cWDpQdYdg((";
@@ -36,7 +37,7 @@ angular.module('blizzwebtestApp.services', []).
       }
     }
     
-    seAPI.getAnswers =  function(answerId, answerSegment) {
+    seAPI.getAnswers = function(answerId, answerSegment) {
       return $http({
         url: 'https://api.stackexchange.com/2.2/answers/'+ answerId +'/'+ answerSegment +'?key='+ key +'&order=desc&sort=creation&site=stackoverflow&filter=withbody'
       });
@@ -61,4 +62,31 @@ angular.module('blizzwebtestApp.services', []).
     }
 
     return seAPI;
+  })
+  .service('seAuthService', function() {
+  
+    var stackExchangeAuth = {};
+    
+    stackExchangeAuth.authenticate = function(route) {
+      SE.authenticate({
+        success: function(data) { 
+          //alert(
+          //  'User Authorized with account id = ' + 
+          //  data.networkUsers[0].account_id + ', got access token = ' + 
+          //  data.accessToken
+          //);
+          sessionStorage.accessToken = data.accessToken; 
+          // TODO: We're using HTML5 session storage to store the access token for now. This would probably be better done through Angular's cookieStore service.
+          alert(route.reload);
+          alert(location);
+          route.reload(); // Refresh the page, forcing all APIs to be re-requested.
+        },
+        error: function(data) { 
+          alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
+        },
+        scope: ['write_access'],
+        networkUsers: true
+      })
+    }
+    return stackExchangeAuth;
   });
