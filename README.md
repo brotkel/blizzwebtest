@@ -7,7 +7,7 @@ blizzwebtest
 App
 --------
 1. Login uses session storage instead of cookies. Is this okay?
-2. After logging in, refresh content on page.
+2. When refreshing after logging in, $route.reload goes back to root.
 
 Main Page
 --------

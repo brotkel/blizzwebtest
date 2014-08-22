@@ -8,7 +8,7 @@
  * Controller of the blizzwebtestApp
  */
 angular.module('blizzwebtestApp')
-  .controller('SearchCtrl', function ($scope, $rootScope, seAPIService, $routeParams, $location) {
+  .controller('SearchCtrl', function ($scope, $rootScope, $route, $routeParams, $location, seAPIService, seAuthService) {
   
     $rootScope.loggedIn = sessionStorage.accessToken;
     
@@ -22,6 +22,10 @@ angular.module('blizzwebtestApp')
     $scope.selectedSort = [];
     $scope.orders = ['asc', 'desc'];
     $scope.sorts = ['activity', 'votes', 'created', 'relevance'];
+    
+    $rootScope.authenticate = function() {
+      seAuthService.authenticate($route);
+    }
     
     seAPIService.getTags().success(function (response) {
       $scope.tags = response.items;

@@ -8,7 +8,7 @@
  * Controller of the blizzwebtestApp
  */
 angular.module('blizzwebtestApp')
-  .controller('MainCtrl', function ($scope, $rootScope, seAPIService) {
+  .controller('MainCtrl', function ($scope, $rootScope, $route, seAPIService, seAuthService) {
     
     $rootScope.loggedIn = sessionStorage.accessToken;
     
@@ -17,6 +17,10 @@ angular.module('blizzwebtestApp')
     $scope.myTimeline = [];
     $scope.myFavorites = [];
     $scope.tagCloud = [];
+    
+    $rootScope.authenticate = function() {
+      seAuthService.authenticate($route);
+    }
     
     if ($rootScope.loggedIn) {
       seAPIService.getMe('').success(function (response) {

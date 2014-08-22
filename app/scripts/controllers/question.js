@@ -8,7 +8,7 @@
  * Controller of the blizzwebtestApp
  */
 angular.module('blizzwebtestApp')
-  .controller('QuestionCtrl', function ($scope, $rootScope, seAPIService, $routeParams, $location) {
+  .controller('QuestionCtrl', function ($scope, $rootScope, $route, $routeParams, $location, seAPIService, seAuthService ) {
   
     $rootScope.loggedIn = sessionStorage.accessToken;
     
@@ -20,6 +20,10 @@ angular.module('blizzwebtestApp')
     $scope.questionAnswers = [];
     $scope.answerIds = []
     $scope.answerComments = [];
+    
+    $rootScope.authenticate = function() {
+      seAuthService.authenticate($route);
+    }
     
     seAPIService.getQuestions($routeParams.questionId, '').success(function (response) {
       $scope.questions = response.items;

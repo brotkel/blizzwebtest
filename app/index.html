@@ -21,8 +21,8 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li ng-hide="loggedIn"><a ng-href="#" id="login-button">Login</a>
+          <li><a ng-href="#/about" ng-click="authenticate()">About</a></li>
+          <li ng-hide="loggedIn"><a ng-href="#" ng-click="authenticate()" id="login-button">Login</a>
 
         </ul>
         <h3 class="text-muted">blizzwebtest</h3>
