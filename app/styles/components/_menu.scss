@@ -1,0 +1,40 @@
+aside.menu {
+  background: rgba(255,255,255,0.05);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.07);
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  
+  h2 {
+    padding: 10px 15px 0px 15px;
+    font-size: 12px;
+    margin: 0 0 10px 0;
+  }
+  
+  a {
+    color: $gray;
+  }
+  
+  a:hover {
+    color: $link-hover-color;
+  }
+  
+  ul {
+    padding: 0px 15px 10px 10px;
+    margin: 10px 0px 0px 0px;
+    li {
+      list-style: none;
+      display: inline-block;
+      margin: 0px 5px;
+      a {
+        color: $gray-light;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $container-tablet) {
+  aside.menu {
+    width: 91%;
+  }
+}

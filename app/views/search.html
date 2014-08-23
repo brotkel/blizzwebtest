@@ -1,31 +1,50 @@
-<form name="searchForm">
-  <label for="selectedTag">Tag:</label><select id="selectedTag" ng-model="selectedTag" ng-change="selectTag(selectedTag)" ng-options="tag.name for tag in tags track by tag.name" />
-  <label for="order">Order:</label><select id="selectedOrder" ng-model="selectedOrder" ng-change="selectOrder(selectedOrder)" ng-options="order for order in orders track by order" />
-  <label for="selectedSort">Sort:</label><select id="selectedSort" ng-model="selectedSort" ng-change="selectSort(selectedSort)" ng-options="sort for sort in sorts track by sort" />
-</form>
-<section>
-  <h4>Search Results</h4>
-  <ul>
-    <li ng-repeat="question in searchQuestions">
+<div class="row">
+  <div class="col-sm-4">
+    <aside class="menu">
+      <h2>Tag Cloud</h2>
       <ul>
-        <li>Title: <a ng-href="/#/question/{{question.question_id}}" ng-bind-html="question.title"></a></li>
-        <li>Votes: <span ng-bind="question.score"></span></li>
-        <li>Answers: <span ng-bind="question.answer_count"></span></li>
-        <li>Views: <span ng-bind="question.view_count"></span></li>
-        <li>Date Asked: <span ng-bind="question.creation_date * 1000 | date"></span></li>
-        <li>Tags:
+        <li ng-repeat="tag in searchQuestions | uniqueTags"><a ng-href="/#/search/tag/{{tag}}" ng-bind="tag"></a></li>
+      </ul>
+    </aside>
+  </div>
+  
+  <div class="col-sm-8">
+          <form name="searchForm">
+            <div>
+              <label for="selectedTag" class="col-md-2">Tag:</label>
+              <select id="selectedTag" class="col-md-2" ng-model="selectedTag" ng-change="selectTag(selectedTag)" ng-options="tag.name for tag in tags track by tag.name" />
+            </div>
+            <div>
+              <label for="order" class="col-md-2">Order:</label>
+              <select id="selectedOrder" class="col-md-2" ng-model="selectedOrder" ng-change="selectOrder(selectedOrder)" ng-options="order for order in orders track by order" />
+            </div>
+            <div>
+              <label for="selectedSort" class="col-md-2">Sort:</label>
+              <select id="selectedSort" class="col-md-2" ng-model="selectedSort" ng-change="selectSort(selectedSort)" ng-options="sort for sort in sorts track by sort" />
+            </div>
+            <span class="clearfix"></span>
+          </form>
+
+    
+    <section>
+      <h1>Search Results</h1>
+      <ul>
+        <li ng-repeat="question in searchQuestions">
           <ul>
-            <li ng-repeat="tag in question.tags"><a ng-href="/#/search/tag/{{tag}}" ng-bind="tag"></a></li>
+            <li><h2><a ng-href="/#/question/{{question.question_id}}" ng-bind-html="question.title"></a></h2></li>
+            <li>Votes: <span ng-bind="question.score"></span></li>
+            <li>Answers: <span ng-bind="question.answer_count"></span></li>
+            <li>Views: <span ng-bind="question.view_count"></span></li>
+            <li>Date Asked: <span ng-bind="question.creation_date * 1000 | date"></span></li>
+            <li>Tags:
+              <ul>
+                <li ng-repeat="tag in question.tags"><a ng-href="/#/search/tag/{{tag}}" ng-bind="tag"></a></li>
+              </ul>
+            </li>
           </ul>
         </li>
+        <li ng-show="!searchQuestions.length" class="message">There are no questions for the specified term.</li>
       </ul>
-    <li ng-show="!searchQuestions.length">There are no questions for the specified term.</li>
-    </li>
-  </ul>
-</section>
-<aside>
-  <h4>Tag Cloud</h4>
-  <ul>
-    <li ng-repeat="tag in searchQuestions | uniqueTags"><a ng-href="/#/search/tag/{{tag}}" ng-bind="tag"></a></li>
-  </ul>
-</aside>
+    </section>
+  </div>
+</div>

@@ -17,22 +17,34 @@
   <body ng-app="blizzwebtestApp" ng-cloak>
 
     <!-- Add your site or application content here -->
+    <header class="page">
+      <div class="container">
+        <a class="brand" ng-href="/#/">Blizzard Q&A Portal</a>
+        <nav>
+          <ul class="nav pull-right">
+            <li><a ng-href="#">Home</a></li>
+            <li class="login" ng-hide="loggedIn"><a ng-href="#" ng-click="authenticate()" id="login-button">Login</a></li>
+            <li><a ng-href="#/about">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about" ng-click="authenticate()">About</a></li>
-          <li ng-hide="loggedIn"><a ng-href="#" ng-click="authenticate()" id="login-button">Login</a>
-
-        </ul>
-        <h3 class="text-muted">blizzwebtest</h3>
-      </div>
-
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+      <div ng-view="" class="body"></div>
+      
+      <footer>
+        <div id="copyright" class="row">
+          <div class="col-sm-8">
+            <span>&copy;2014 Blizzard Entertainment, Inc. All rights reserved</span>
+          </div>
+        </div>
+        <div id="legal" class="row">
+          <div class="col-sm-4">
+            <a ng-href="#"><img src="images/logo/blizzard-sprite.20VEI.png" /></a>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <!-- build:js(.) scripts/oldieshim.js -->

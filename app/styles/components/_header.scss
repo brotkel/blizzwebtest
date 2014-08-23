@@ -1,0 +1,37 @@
+header.page {
+  background: {
+    color: #0f2a48;
+    image: url("../../images/bg/bnet-background-1920.3ooDe.jpg");
+    repeat: no-repeat;
+    position: center 0;
+  }
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  height: 80px;
+  margin-bottom: 40px;
+
+  a.brand {
+    background: {
+      color: transparent;
+      image: url("../../images/ico/mark.4MNOa.png");
+      repeat: no-repeat;
+      position: left 18px;
+    }
+    display: inline-block;
+    float: left;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 30px;
+    height: 30px;
+    padding: 25px 0;
+    color: #fff;
+    padding-left: 60px;
+    transition: text-shadow .2s, color .2s;
+    box-sizing: content-box;
+  }
+  
+  a.brand:hover, a.brand:focus {
+    text-shadow:0 0 10px $gray-dark,0 0 10px $gray-dark;
+  }
+  
+}
