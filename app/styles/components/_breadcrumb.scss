@@ -1,0 +1,63 @@
+.page {
+  .breadcrumb {
+    margin: 0;
+    border-radius: 0;
+    min-height: 40px;
+    padding: 10px 0;
+    background: rgba(255,255,255,0.05);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    
+    ol {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+      line-height: 20px;
+      list-style: none;
+      > li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        a {
+          color: rgba(255,255,255,0.7);
+        }
+        a:hover {
+          color: $link-hover-color;
+        }
+        [class^="icon-"], [class*=" icon-"] {
+          background-image: url("../../images/ico/sprite-16-blue.png");
+          margin: 2px;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          overflow: hidden;
+          line-height: 16px;
+          vertical-align: top;
+          background-repeat: no-repeat;
+          text-indent: -9999px;
+          -webkit-transition: opacity,0.2s;
+          transition: opacity .2s;
+        }
+        .icon-home {
+          margin-right: 10px;
+          background-position: -16px -16px;
+        }
+        > .divider {
+          padding: 0 5px;
+          opacity: .25;
+        }
+        .icon-chevron-right {
+          background-position: 0 -48px;
+        }
+        .icon-white {
+          background-image: url("../../images/ico/sprite-16-white.png");
+        }
+      }
+      > li.active {
+        color: #fff;
+      }
+    }
+    
+  }
+}

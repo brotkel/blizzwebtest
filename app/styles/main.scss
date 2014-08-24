@@ -4,6 +4,7 @@
 @import "components/_header.scss";
 @import "components/_footer.scss";
 @import "components/_mainNav.scss";
+@import "components/_breadcrumb.scss";
 @import "components/_menu.scss";
 @import "components/_forms.scss";
 @import "components/_badges.scss";
@@ -37,7 +38,7 @@ html , body {
   }
 }
 
-body > .container , body > header > .container {
+body > .container , body > .page .container {
   padding: 0px 40px;
 }
 

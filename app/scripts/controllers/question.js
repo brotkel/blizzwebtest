@@ -8,8 +8,10 @@
  * Controller of the blizzwebtestApp
  */
 angular.module('blizzwebtestApp')
-  .controller('QuestionCtrl', function ($scope, $rootScope, $route, $routeParams, $location, seAPIService, seAuthService ) {
-  
+  .controller('QuestionCtrl', function ($scope, $rootScope, $route, $routeParams, $location, seAPIService, seAuthService, breadcrumbs ) {
+    
+    
+    $rootScope.breadcrumbs = breadcrumbs;
     $rootScope.loggedIn = sessionStorage.accessToken;
     
     $scope.isFavorite = [];
@@ -27,6 +29,7 @@ angular.module('blizzwebtestApp')
     
     seAPIService.getQuestions($routeParams.questionId, '').success(function (response) {
       $scope.questions = response.items;
+      breadcrumbs.options = { 'Question': $scope.questions[0].title }; // Override breadcrumb title
     });
     
     seAPIService.getQuestions($routeParams.questionId, 'comments').success(function (response) {

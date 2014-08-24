@@ -17,25 +17,30 @@ angular
     'ngSanitize',
     'ngTouch',
     'blizzwebtestApp.services',
-    'angularMoment'
+    'angularMoment',
+    'ng-breadcrumbs'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        label: 'Home'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        controller: 'AboutCtrl',
+        label: 'About'
       })
       .when('/search/tag/:tag', {
         templateUrl: 'views/search.html',
-        controller: 'SearchCtrl'
+        controller: 'SearchCtrl',
+        label: 'Search'
       })
       .when('/question/:questionId', {
         templateUrl: 'views/question.html',
-        controller: 'QuestionCtrl'
+        controller: 'QuestionCtrl',
+        label: 'Question'
       })
       .otherwise({
         redirectTo: '/'

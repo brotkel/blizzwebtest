@@ -8,8 +8,9 @@
  * Controller of the blizzwebtestApp
  */
 angular.module('blizzwebtestApp')
-  .controller('SearchCtrl', function ($scope, $rootScope, $route, $routeParams, $location, seAPIService, seAuthService) {
+  .controller('SearchCtrl', function ($scope, $rootScope, $route, $routeParams, $location, seAPIService, seAuthService, breadcrumbs) {
   
+    $rootScope.breadcrumbs = breadcrumbs;
     $rootScope.loggedIn = sessionStorage.accessToken;
     
     // API result set

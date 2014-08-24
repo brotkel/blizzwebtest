@@ -8,8 +8,9 @@
  * Controller of the blizzwebtestApp
  */
 angular.module('blizzwebtestApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $route, seAPIService, seAuthService) {
+  .controller('MainCtrl', function ($scope, $rootScope, $route, seAPIService, seAuthService, breadcrumbs ) {
     
+    $rootScope.breadcrumbs = breadcrumbs;
     $rootScope.loggedIn = sessionStorage.accessToken;
     
     $scope.myProfile = [];
