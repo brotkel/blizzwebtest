@@ -1,0 +1,112 @@
+.body {
+  article {
+    header {
+      p.favorite {
+        float: left;
+        margin: .5em .5em .5em 0;
+      }
+      
+      p.favorite > input {
+        padding: 0;
+        margin: 0;
+        height: 32px;
+        width: 32px;
+        float: left;
+        position: absolute;
+        left: 0;
+        opacity: 0;
+      }
+      
+      p.favorite > label {
+        line-height: 32px;
+        color: #fff;
+        padding: 0 0 0 34px;
+        -moz-transition: color 1s ease;
+        -o-transition: color 1s ease;
+        -webkit-transition: color 1s ease;
+        transition: color 1s ease;
+        cursor: pointer;
+        text-indent: -9999px;
+      }
+      
+      p:not(#foo) > input + label {
+        background: url("../images/ico/sprites.png") 0 -1px no-repeat;
+        height: 32px;
+      }
+      
+      p:not(#foo) > input[type=checkbox]:checked + label {
+        background-position: 0 -41px;
+      }
+      
+      h1 {
+        margin-left: 41px;
+      }
+    }
+    
+    section {
+      background: rgba(39,56,76,0.9);
+      position: relative;
+      display: block;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      -webkit-transition: box-shadow,0.2s,ease-in-out;
+      transition: box-shadow .2s ease-in-out;
+      margin: 20px 0;
+    }
+    
+    > h2 {
+      border-top: 1px solid $gray-darker;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+    
+    section.question > span , section.answer > span , section.question ul.comments > li , section.answer ul.comments > li {
+      padding: 15px 15px 15px 80px;
+      display: block;
+      position: relative;
+    }
+    
+    section.question , section.answer {
+      span.owner {
+        text-align: right;
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      > h2 {
+        position: absolute;
+        left: 0px;
+        width: 80px;
+        text-align: center;
+        top: 15px;
+        font-size: 2em;
+        line-height: 1em;
+        padding: 0 10px;
+        margin: 0;
+      }
+    }
+    
+    section.question ul.comments > li , section.answer ul.comments > li {
+      span {
+        color: $gray-dark;
+      }
+      span:first-child {
+        color: $gray;
+      }
+      span:last-child {
+        position: absolute;
+        left: 0px;
+        top: 15px;
+        width: 80px;
+        text-align: center;
+        padding: 0 10px;
+      }
+    }
+    
+    ul.comments > li {
+      border-top: 1px dotted $gray-darker;
+    }
+  }
+}

@@ -14,11 +14,9 @@ Main Page
 
 Search Page
 --------
-1. Allow for filterable search results
-    Page?
-    Intitle?
 2. Possible to get all questions instead of tags?
 3. Show progress while waiting for content to load
+4. Add pager
 
 Questions Page
 --------
@@ -26,12 +24,13 @@ Questions Page
 
 Theming
 --------
-1. Investigate and build theme in Sass
-2. Add semantic tags
-3. Design for mobile using Bootstrap grid
+1. Add breadcrumb
+2. Improve timeline
+3. Add about page content
 
 Misc
 --------
 1. Test in different browsers
 2. Write testing framework
 3. Can we remove # from paths without breaking it?
+4. Change Stack Exchange profile settings back to Github pages

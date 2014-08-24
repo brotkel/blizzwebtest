@@ -1,5 +1,8 @@
-.body section {
-  .profile {
+.body section.profile {
+  h2 {
+    margin-top: 0;
+  }
+  img {
     display: block;
     margin: 0px auto;
   }
