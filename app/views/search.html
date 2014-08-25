@@ -27,6 +27,7 @@
 
     <section>
       <h1>Search Results</h1>
+      
       <ul class="content">
         <li ng-repeat="question in searchQuestions">
           <ul class="content">
@@ -47,8 +48,10 @@
             </li>
           </ul>
         </li>
-        <li ng-show="!searchQuestions.length" class="message">There are no questions for the specified term.</li>
+        <li ng-show="!searchQuestions.length && !loading" class="message">There are no questions for the specified term.</li>
       </ul>
+      <div class="loading-spinner" data-loading><img src="/images/ico/ajax-loader.gif" alt="Loading..." /></div>
     </section>
+    
   </div>
 </div>

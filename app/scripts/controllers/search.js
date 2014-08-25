@@ -22,7 +22,7 @@ angular.module('blizzwebtestApp')
     $scope.selectedOrder = [];
     $scope.selectedSort = [];
     $scope.orders = ['asc', 'desc'];
-    $scope.sorts = ['activity', 'votes', 'created', 'relevance'];
+    $scope.sorts = ['activity', 'votes', 'creation', 'relevance'];
     
     $rootScope.authenticate = function() {
       seAuthService.authenticate($route);
@@ -30,6 +30,13 @@ angular.module('blizzwebtestApp')
     
     seAPIService.getTags().success(function (response) {
       $scope.tags = response.items;
+
+      var foundTags = $.grep($scope.tags, function(e) {
+        return e.name == $routeParams.tag; // Look through the response for the current tag.
+      });
+      if (foundTags.length == 0) {
+        $scope.tags.push({name: $routeParams.tag}); // If the current tag isn't in the array, add it so the select isn't blank.
+      }
     });
     
     seAPIService.search($routeParams.tag, $routeParams.order, $routeParams.sort).success(function (response) {

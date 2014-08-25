@@ -24,9 +24,7 @@ Questions Page
 
 Theming
 --------
-1. Add breadcrumb
-2. Improve timeline
-3. Add about page content
+2. Improve timeline display
 
 Misc
 --------
@@ -34,3 +32,4 @@ Misc
 2. Write testing framework
 3. Can we remove # from paths without breaking it?
 4. Change Stack Exchange profile settings back to Github pages
+5. Document code
