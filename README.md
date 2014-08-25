@@ -15,7 +15,6 @@ Main Page
 Search Page
 --------
 2. Possible to get all questions instead of tags?
-3. Show progress while waiting for content to load
 4. Add pager
 
 Questions Page
@@ -25,6 +24,7 @@ Questions Page
 Theming
 --------
 2. Improve timeline display
+3. Add ARIA roles and microdata
 
 Misc
 --------
