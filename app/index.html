@@ -13,7 +13,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <base href="/blizzwebtest/">
+    <base href="/blizzwebtest/"> <!-- Change this to the path on your server -->
   </head>
   <body ng-app="blizzwebtestApp" ng-cloak>
 
@@ -28,7 +28,7 @@
             <nav>
               <ul class="nav pull-right">
                 <li><a ng-href="./#/">Home</a></li>
-                <li class="login" ng-hide="loggedIn"><a ng-href="#" ng-click="authenticate()" id="login-button">Login</a></li>
+                <li class="login" ng-hide="loggedIn"><a ng-href="" ng-click="authenticate()" id="login-button">Login</a></li>
                 <li><a ng-href="./#/about">About</a></li>
               </ul>
             </nav>

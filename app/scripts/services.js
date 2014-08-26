@@ -78,7 +78,6 @@ angular
           sessionStorage.accessToken = data.accessToken; 
           // TODO: We're using HTML5 session storage to store the access token for now. This would probably be better done through Angular's cookieStore service.
           //alert(route.reload);
-          //alert(location);
           route.reload(); // Refresh the page, forcing all APIs to be re-requested.
         },
         error: function(data) { 

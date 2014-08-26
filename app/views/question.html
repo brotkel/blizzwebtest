@@ -1,7 +1,7 @@
 <div class="row">
   <article class="col-xs-12">
     <header>
-      <p class="favorite">
+      <p ng-show="loggedIn" class="favorite">
         <input type="checkbox" id="favorite" ng-model="isFavorite" ng-change="favorite()" /><label for="favorite" id="favoriteLabel">Favorite</label>
       </p>
       <h1 ng-bind-html="questions[0].title"></h1>
@@ -51,6 +51,7 @@
           </ul>
         </section>
       </li>
+      <li ng-show="!questionAnswers.length" class="message">There are no answers for this question yet.</li>
     </ul>
   </article>
 </div>

@@ -29,7 +29,7 @@ angular.module('blizzwebtestApp')
     
     seAPIService.getQuestions($routeParams.questionId, '').success(function (response) {
       $scope.questions = response.items;
-      breadcrumbs.options = { 'Question': $scope.questions[0].title }; // Override breadcrumb title
+      breadcrumbs.options = { 'Question': $scope.questions[0].title }; // Override breadcrumb title with question title.
     });
     
     seAPIService.getQuestions($routeParams.questionId, 'comments').success(function (response) {
@@ -39,32 +39,40 @@ angular.module('blizzwebtestApp')
     seAPIService.getQuestions($routeParams.questionId, 'answers').success(function (response) {
       $scope.questionAnswers = response.items;
       
-      // Build an array of answer ids to get answer comments.
-      for ( var i = 0; i < $scope.questionAnswers.length; i++ ) {
-        $scope.answerIds.push($scope.questionAnswers[i].answer_id);
+      if ($scope.questionAnswers.length) {
+        // Build an array of answer ids to get answer comments.
+        for ( var i = 0; i < $scope.questionAnswers.length; i++ ) {
+          $scope.answerIds.push($scope.questionAnswers[i].answer_id);
+        }
+        var answerIdsString = $scope.answerIds.join(";"); // Must be sent with semicolon separators
+        
+        seAPIService.getAnswers(answerIdsString, 'comments').success(function (response) {
+          $scope.answerComments = response.items;
+        });
       }
-      var answerIdsString = $scope.answerIds.join(";"); // Must be sent with semicolon separators
-      
-      seAPIService.getAnswers(answerIdsString, 'comments').success(function (response) {
-        $scope.answerComments = response.items;
-      });
     });
     
-    seAPIService.getMe('favorites').success(function (response) {
-      $scope.myFavorites = response.items;
-      
-      // Is this question in the user's favorites?
-      for ( var i = 0; i < $scope.myFavorites.length; i++ ) {
-        if ( $scope.myFavorites[i].question_id == $routeParams.questionId ) {
-          $scope.isFavorite = true;
+    if ($rootScope.loggedIn) {
+      seAPIService.getMe('favorites').success(function (response) {
+        $scope.myFavorites = response.items;
+        
+        // Is this question in the user's favorites?
+        for ( var i = 0; i < $scope.myFavorites.length; i++ ) {
+          if ( $scope.myFavorites[i].question_id == $routeParams.questionId ) {
+            $scope.isFavorite = true;
+          }
         }
-      }
-    });
+      });
+    };
     
     $scope.favorite = function() {
-      seAPIService.setFavorite($routeParams.questionId, $scope.isFavorite).success(function (response) {
-        // TODO: Add error handling if a question is request is cached.
-      });
+      seAPIService.setFavorite($routeParams.questionId, $scope.isFavorite)
+        .success(function (response) { 
+        })
+        .error(function (response) {
+          if (response.error_id == 407) { //Favorites can be cached for up to 1 minute. If the user refreshes and tries to favorite again, it will return this error, but the UI should still display it as favorited.
+          };
+        });
     }
 
   

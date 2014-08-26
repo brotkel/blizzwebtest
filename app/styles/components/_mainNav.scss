@@ -45,7 +45,9 @@ header nav {
         background:#c5c5c5;
         color:#000;
       }
-  
+      a#login-button {
+        cursor: pointer;
+      }
     }
     li:first-child {
       background-position: 0 0;
