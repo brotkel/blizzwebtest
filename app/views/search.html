@@ -12,15 +12,15 @@
     <form name="searchForm">
       <div class="col-md-4">
         <label for="selectedTag" class="col-md-4">Tag:</label>
-        <select id="selectedTag" class="col-md-8" ng-model="selectedTag" ng-change="selectTag(selectedTag)" ng-options="tag.name for tag in tags track by tag.name" />
+        <select id="selectedTag" class="col-md-8" ng-model="selectedTag" ng-change="selectTag(selectedTag)" ng-options="tag.name for tag in tags track by tag.name"></select>
       </div>
       <div class="col-md-4">
         <label for="order" class="col-md-4">Order:</label>
-        <select id="selectedOrder" class="col-md-8" ng-model="selectedOrder" ng-change="selectOrder(selectedOrder)" ng-options="order for order in orders track by order" />
+        <select id="selectedOrder" class="col-md-8" ng-model="selectedOrder" ng-change="selectOrder(selectedOrder)" ng-options="order for order in orders track by order"></select>
       </div>
       <div class="col-md-4">
         <label for="selectedSort" class="col-md-4">Sort:</label>
-        <select id="selectedSort" class="col-md-8" ng-model="selectedSort" ng-change="selectSort(selectedSort)" ng-options="sort for sort in sorts track by sort" />
+        <select id="selectedSort" class="col-md-8" ng-model="selectedSort" ng-change="selectSort(selectedSort)" ng-options="sort for sort in sorts track by sort"></select>
       </div>
       <span class="clearfix"></span>
     </form>
