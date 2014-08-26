@@ -20,7 +20,7 @@ angular
     'angularMoment',
     'ng-breadcrumbs'
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -45,7 +45,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-    $locationProvider.html5Mode(true).hashPrefix('!');;
   })
   .filter('uniqueTags', function() {
     return function(list) {

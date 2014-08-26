@@ -3,7 +3,7 @@
     <aside class="menu">
       <h2>Tag Cloud</h2>
       <ul class="content">
-        <li ng-repeat="tag in searchQuestions | uniqueTags"><a ng-href="/search/tag/{{tag}}" ng-bind="tag"></a></li>
+        <li ng-repeat="tag in searchQuestions | uniqueTags"><a ng-href="./#/search/tag/{{tag}}" ng-bind="tag"></a></li>
       </ul>
     </aside>
   </div>
@@ -31,7 +31,7 @@
       <ul class="content">
         <li ng-repeat="question in searchQuestions">
           <ul class="content">
-            <li><h2><a ng-href="/question/{{question.question_id}}" ng-bind-html="question.title"></a></h2></li>
+            <li><h2><a ng-href="./#/question/{{question.question_id}}" ng-bind-html="question.title"></a></h2></li>
             <li>Posted: <span><time datetime="{{question.creation_date * 1000 | date: 'yyyy-MM-ddTHH:mm:ssZ'}}" ng-bind="question.creation_date * 1000 | date"></time></span></li>
 
             <li>
@@ -43,7 +43,7 @@
             </li>
             <li>Tags:
               <ul class="content tags">
-                <li ng-repeat="tag in question.tags"><a ng-href="/search/tag/{{tag}}" ng-bind="tag"></a></li>
+                <li ng-repeat="tag in question.tags"><a ng-href="./#/search/tag/{{tag}}" ng-bind="tag"></a></li>
               </ul>
             </li>
           </ul>

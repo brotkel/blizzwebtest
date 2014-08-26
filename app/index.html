@@ -23,13 +23,13 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
-              <a class="brand" ng-href="/">Blizzard Q&A Portal</a>
+              <a class="brand" ng-href="./#/">Blizzard Q&A Portal</a>
             </div>
             <nav>
               <ul class="nav pull-right">
-                <li><a ng-href="/">Home</a></li>
+                <li><a ng-href="./#/">Home</a></li>
                 <li class="login" ng-hide="loggedIn"><a ng-href="#" ng-click="authenticate()" id="login-button">Login</a></li>
-                <li><a ng-href="/about">About</a></li>
+                <li><a ng-href="./#/about">About</a></li>
               </ul>
             </nav>
           </div>
@@ -41,7 +41,7 @@
             <nav class="col-sm-12">
               <ol>
                 <li ng-repeat="breadcrumb in breadcrumbs.get() track by breadcrumb.path" ng-class="{active: $last}">
-                  <a ng-if="!$last" ng-href="/{{ breadcrumb.path }}">
+                  <a ng-if="!$last" ng-href="./#{{ breadcrumb.path }}">
                     <i ng-if="breadcrumb.label == 'Home'" class="icon-home"></i><span ng-bind-html="breadcrumb.label" class="margin-right-xs"></span>
                   </a>
                   <span ng-if="!$last" class="divider"><i xmlns="http://www.w3.org/1999/xhtml" class="icon-chevron-right icon-white"></i></span>
@@ -65,7 +65,7 @@
         </div>
         <div id="legal" class="row">
           <div class="col-sm-4">
-            <a ng-href="/"><img src="images/logo/blizzard-sprite.png" /></a>
+            <a ng-href="./#/"><img src="images/logo/blizzard-sprite.png" /></a>
           </div>
         </div>
       </footer>

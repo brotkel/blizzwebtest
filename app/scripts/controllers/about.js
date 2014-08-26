@@ -8,10 +8,12 @@
  * Controller of the blizzwebtestApp
  */
 angular.module('blizzwebtestApp')
-  .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AboutCtrl', function ($scope, $rootScope, $route, seAPIService, seAuthService, breadcrumbs) {
+    
+    $rootScope.breadcrumbs = breadcrumbs;
+    $rootScope.loggedIn = sessionStorage.accessToken;
+
+    $rootScope.authenticate = function() {
+      seAuthService.authenticate($route);
+    }
   });

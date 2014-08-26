@@ -3,7 +3,7 @@
     <aside class="menu">
       <h2>Tag Cloud</h2>
       <ul class="content">
-        <li ng-repeat="tag in tagCloud"><a ng-href="/search/tag/{{tag.name}}" ng-bind="tag.name"></a></li>
+        <li ng-repeat="tag in tagCloud"><a ng-href="/#/search/tag/{{tag.name}}" ng-bind="tag.name"></a></li>
       </ul>
     </aside>
   </div>
@@ -55,7 +55,7 @@
     <section ng-show="loggedIn">
       <h2>Favorites</h2>
       <ul class="content">
-        <li ng-repeat="favorite in myFavorites"><a ng-href="/question/{{favorite.question_id}}" ng-bind="favorite.title"></a></li>
+        <li ng-repeat="favorite in myFavorites"><a ng-href="/#/question/{{favorite.question_id}}" ng-bind="favorite.title"></a></li>
         <li ng-show="!myFavorites.length" class="message">You have no favorites</li>
       </ul>
     </section>
