@@ -20,7 +20,7 @@ angular
     'angularMoment',
     'ng-breadcrumbs'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -45,6 +45,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+    $locationProvider.html5Mode(true).hashPrefix('!');;
   })
   .filter('uniqueTags', function() {
     return function(list) {
@@ -88,12 +89,12 @@ angular
       clientId: 3464, 
       key: 'x20eFwhSY2)G0cWDpQdYdg((', 
       // Used for cross domain communication, it will be validated
-      channelUrl: 'http://localhost/blank.html',
+      channelUrl: 'http://brotkel.github.io/blizzwebtest/blank.html',
       // Called when all initialization is finished
       complete: function(data) { 
-          $('#login-button')
-            .removeAttr('disabled')
-            .text('Login'); 
+          //$('#login-button')
+          //  .removeAttr('disabled')
+          //  .text('Login'); 
       }
     });
   })
