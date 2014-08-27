@@ -28,8 +28,8 @@
 body {
   a , a:link , a:focus , a:visited {
     color: $link-color;
-    //-webkit-transition: color,0.2s;
-    //transition: color 0.2s; // There is currently a bug in visited links with transition color in AngularJS and Chrome, causing them to be rendered in the default browser color.
+    -webkit-transition: color,0.2s;
+    transition: color 0.2s; // There is currently a bug in visited links with transition color in AngularJS and Chrome 36, causing them to be rendered in the default browser color.
   }
   
   a:hover {

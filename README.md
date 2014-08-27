@@ -24,11 +24,8 @@ Questions Page
 Theming
 --------
 2. Improve timeline display
-3. Add ARIA roles and microdata
 
 Misc
 --------
-1. Test in different browsers
 3. Can we remove # from paths without breaking it? No, can't be done on Github pages without custom domain.
 4. Change Stack Exchange profile settings back to Github pages
-5. Document code
