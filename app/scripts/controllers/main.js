@@ -13,16 +13,18 @@ angular.module('blizzwebtestApp')
     $rootScope.breadcrumbs = breadcrumbs;
     $rootScope.loggedIn = sessionStorage.accessToken;
     
-    $scope.myProfile = [];
-    $scope.myBadges = [];
-    $scope.myTimeline = [];
-    $scope.myFavorites = [];
-    $scope.tagCloud = [];
+    $scope.myProfile = []; // Main profile data
+    $scope.myBadges = []; // Badges
+    $scope.myTimeline = []; // Timeline
+    $scope.myFavorites = []; // Favorites
+    $scope.tagCloud = []; // Tag cloud
     
+    // Login function
     $rootScope.authenticate = function() {
       seAuthService.authenticate($route);
     }
     
+    // Gets user profile data for logged-in users.
     if ($rootScope.loggedIn) {
       seAPIService.getMe('').success(function (response) {
         $scope.myProfile = response.items[0];
@@ -41,6 +43,7 @@ angular.module('blizzwebtestApp')
       });
     }
     
+    // Displays tag cloud based on popular tags.
     seAPIService.getTags().success(function (response) {
       $scope.tagCloud = response.items;
     });

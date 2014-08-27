@@ -19,15 +19,15 @@
 
     <!-- Add your site or application content here -->
     <div class="page">
-      <header>
+      <header role="banner">
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
               <a class="brand" ng-href="./#/">Blizzard Q&A Portal</a>
             </div>
-            <nav>
+            <nav role="navigation">
               <ul class="nav pull-right">
-                <li><a ng-href="./#/">Home</a></li>
+                <li><a ng-href="./#/" title="Home">Home</a></li>
                 <li class="login" ng-hide="loggedIn"><a ng-href="" ng-click="authenticate()" id="login-button">Login</a></li>
                 <li><a ng-href="./#/about">About</a></li>
               </ul>
@@ -65,7 +65,7 @@
         </div>
         <div id="legal" class="row">
           <div class="col-sm-4">
-            <a ng-href="./#/"><img src="images/logo/blizzard-sprite.png" /></a>
+            <a ng-href="./#/"><img src="images/logo/blizzard-sprite.png" alt="Blizzard Entertainment" /></a>
           </div>
         </div>
       </footer>

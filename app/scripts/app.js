@@ -46,6 +46,7 @@ angular
         redirectTo: '/'
       });
   })
+  // Filters tags in the tag cloud to only unique items.
   .filter('uniqueTags', function() {
     return function(list) {
         var tags = {};
@@ -61,6 +62,7 @@ angular
         return uniqueTags;
     }
   })
+  // This directive returns adds "loading" to the scope and allows isLoading to show items on the page when loading (Ajax spinner)
   .directive('loading', ['$http' ,function ($http) {
     return {
       restrict: 'A',
@@ -68,7 +70,6 @@ angular
         scope.isLoading = function () {
           return $http.pendingRequests.length > 0;
         };
-
         scope.$watch(scope.isLoading, function (v) {
           if(v) {
             scope.loading = true;
@@ -82,6 +83,7 @@ angular
     };
   }]);
   
+  // Initializes the Stack Exchange App library. Values provided at http://stackapps.com/apps/oauth/view/3464
   $(function(){
     // Initialize library
     SE.init({ 

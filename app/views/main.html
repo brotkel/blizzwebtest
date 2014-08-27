@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-3">
-    <aside class="menu">
+    <aside class="menu" role="complementary">
       <h2>Tag Cloud</h2>
       <ul class="content">
         <li ng-repeat="tag in tagCloud"><a ng-href="./#/search/tag/{{tag.name}}" ng-bind="tag.name"></a></li>
@@ -8,8 +8,8 @@
     </aside>
   </div>
   
-  <div class="col-sm-9">
-    <section ng-hide="loggedIn" class="message">
+  <div class="col-sm-9" role="main">
+    <section ng-hide="loggedIn" class="message" role="status">
       <a ng-href="./#/" ng-click="authenticate()">Log in</a> to see your profile
     </section>
     

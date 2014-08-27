@@ -1,3 +1,5 @@
+/* General form containers and elements styles */
+
 form , .message {
   background: rgba(255,255,255,0.05);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.07);
@@ -8,4 +10,8 @@ form , .message {
   label {
     width: 50%;
   }
+}
+
+select {
+  color: black;
 }

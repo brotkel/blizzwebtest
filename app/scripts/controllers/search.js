@@ -13,21 +13,31 @@ angular.module('blizzwebtestApp')
     $rootScope.breadcrumbs = breadcrumbs;
     $rootScope.loggedIn = sessionStorage.accessToken;
     
-    // API result set
-    $scope.tags = [];
-    $scope.searchQuestions = [];
+    // Displayed information
+    $scope.tags = []; // Tag cloud of tags present in the displayed questions.
+    $scope.searchQuestions = []; // All the questions based on selected filters.
     
-    // Form inputs
-    $scope.selectedTag = [];
-    $scope.selectedOrder = [];
-    $scope.selectedSort = [];
-    $scope.orders = ['asc', 'desc'];
-    $scope.sorts = ['activity', 'votes', 'creation', 'relevance'];
+    // Form for filtering data
+    $scope.selectedTag = []; // The currently selected tag
+    $scope.selectedOrder = []; // The currently selected sort order
+    $scope.selectedSort = []; // The currently selected sorting criteria
+    $scope.orders = [
+      {name: 'Ascending', value: 'asc'},
+      {name: 'Descending', value: 'desc'}
+    ];
+    $scope.sorts = [
+      {name: 'Activity', value: 'activity'},
+      {name: 'Votes', value: 'votes'},
+      {name: 'Creation Date', value: 'creation'},
+      {name: 'Relevance', value: 'relevance'}
+    ];
     
+    // Login function
     $rootScope.authenticate = function() {
       seAuthService.authenticate($route);
     }
     
+    // Gets popular tags to populate the tag select
     seAPIService.getTags().success(function (response) {
       $scope.tags = response.items;
 
@@ -39,6 +49,7 @@ angular.module('blizzwebtestApp')
       }
     });
     
+    // The main request to search for questions based on filters.
     seAPIService.search($routeParams.tag, $routeParams.order, $routeParams.sort).success(function (response) {
         $scope.searchQuestions = response.items;
     });
@@ -48,16 +59,16 @@ angular.module('blizzwebtestApp')
     
     // Set the select for order to the current query, or default to desc.
     if ($routeParams.order) {
-      $scope.selectedOrder = $routeParams.order;
+      $scope.selectedOrder.value = $routeParams.order;
     } else {
-      $scope.selectedOrder = 'desc';
+      $scope.selectedOrder.value = 'desc';
     };
     
     // Set the select for sort to the current query to default to activity
     if ($routeParams.sort) {
-      $scope.selectedSort = $routeParams.sort;
+      $scope.selectedSort.value = $routeParams.sort;
     } else {
-      $scope.selectedSort = 'activity';
+      $scope.selectedSort.value = 'activity';
     };    
     
     // Change the path to the value of selectTag when changed.
@@ -71,13 +82,12 @@ angular.module('blizzwebtestApp')
     
     // Change the params of the query string for optional attributes like sort order.
     // This can use the search method to change just the param, but it doesn't work with path.
-    
     $scope.selectOrder = function(selectedOrder) {
-      $location.search('order', selectedOrder);
+      $location.search('order', selectedOrder.value);
     }
     
     $scope.selectSort = function(selectedSort) {
-      $location.search('sort', selectedSort);
+      $location.search('sort', selectedSort.value);
     }
 
   });
